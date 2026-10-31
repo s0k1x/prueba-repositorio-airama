@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Airama Propiedades</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Airama Propiedades: compra, venta y alquiler de viviendas singulares en Madrid, Marbella, Mallorca y Barcelona.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Airama Propiedades, inicio">
+      <span class="brand__name">AIRAMA</span>
+      <span class="brand__tag">Propiedades singulares</span>
+    </a>
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#propiedades">Comprar</a>
+      <a href="#propiedades" data-op="alquiler">Alquilar</a>
+      <a href="#vender">Vender</a>
+      <a href="#zonas">Zonas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="header-tools">
+      <span class="lang"><b>ES</b> / EN</span>
+      <a class="btn btn--ghost" href="#vender">Valorar mi vivienda</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="media" aria-hidden="true">
+      <canvas data-scene="sea" data-seed="7"></canvas>
+      <img data-src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=75" alt="">
+    </div>
+    <div class="wrap hero__inner">
+      <div>
+        <span class="eyebrow">Madrid · Marbella · Mallorca · Barcelona</span>
+        <h1 id="hero-title">Casas que se eligen <em>una vez</em> en la vida</h1>
+        <p class="hero__lead">Seleccionamos viviendas excepcionales y acompañamos cada operación con discreción, desde la primera visita hasta la firma ante notario.</p>
+      </div>
+
+      <form class="search" id="search" role="search" aria-label="Buscar propiedades">
+        <div class="search__tabs" role="tablist" aria-label="Tipo de operación">
+          <button type="button" class="search__tab" role="tab" aria-selected="true" data-op="venta" id="tab-venta">Comprar</button>
+          <button type="button" class="search__tab" role="tab" aria-selected="false" data-op="alquiler" id="tab-alquiler">Alquilar</button>
+        </div>
+        <div class="search__row">
+          <div class="field">
+            <label for="s-zona">Zona</label>
+            <select id="s-zona">
+              <option value="">Todas las zonas</option>
+              <option>Madrid</option>
+              <option>Marbella</option>
+              <option>Mallorca</option>
+              <option>Barcelona</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="s-tipo">Tipo</label>
+            <select id="s-tipo">
+              <option value="">Cualquier tipo</option>
+              <option>Villa</option>
+              <option>Ático</option>
+              <option>Piso</option>
+              <option>Finca</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="s-precio">Precio máximo</label>
+            <select id="s-precio">
+              <option value="">Sin límite</option>
+              <option value="1500000">1.500.000 €</option>
+              <option value="3000000">3.000.000 €</option>
+              <option value="6000000">6.000.000 €</option>
+              <option value="12000">12.000 €/mes</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="s-dorm">Dormitorios</label>
+            <select id="s-dorm">
+              <option value="0">Indiferente</option>
+              <option value="2">2 o más</option>
+              <option value="3">3 o más</option>
+              <option value="4">4 o más</option>
+              <option value="5">5 o más</option>
+            </select>
+          </div>
+          <button class="btn" type="submit">Buscar</button>
+        </div>
+      </form>
+
+      <div class="hero__facts">
+        <span><b>19</b>años en el mercado prime</span>
+        <span><b>1.240</b>operaciones cerradas</span>
+        <span><b>4</b>oficinas en España</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="propiedades" aria-labelledby="prop-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Cartera seleccionada</span>
+          <h2 id="prop-title">Propiedades destacadas</h2>
+        </div>
+        <p>Cada vivienda la visita personalmente un asesor antes de publicarse. Muchas operaciones se cierran fuera de mercado: pregúntanos por la cartera privada.</p>
+      </div>
+
+      <div class="filters" id="filters" aria-label="Filtrar por zona">
+        <button class="chip" type="button" aria-pressed="true" data-zona="">Todas</button>
+        <button class="chip" type="button" aria-pressed="false" data-zona="Madrid">Madrid</button>
+        <button class="chip" type="button" aria-pressed="false" data-zona="Marbella">Marbella</button>
+        <button class="chip" type="button" aria-pressed="false" data-zona="Mallorca">Mallorca</button>
+        <button class="chip" type="button" aria-pressed="false" data-zona="Barcelona">Barcelona</button>
+        <span class="results-count" id="results-count" aria-live="polite"></span>
+      </div>
+
+      <div class="listings" id="listings"></div>
+    </div>
+  </section>
+
+  <section class="band zones-band" id="zonas" aria-labelledby="zonas-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Dónde trabajamos</span>
+          <h2 id="zonas-title">Cuatro mercados, conocidos calle a calle</h2>
+        </div>
+        <p>Precios medios de referencia en vivienda prime, según nuestras operaciones de los últimos doce meses.</p>
+      </div>
+      <div class="zones">
+        <article class="zone">
+          <div class="media"><canvas data-scene="city" data-seed="3"></canvas><img data-src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=900&q=70" alt="Vista de Madrid"></div>
+          <div class="zone__body">
+            <h3>Madrid</h3>
+            <p>Salamanca, Chamberí, Almagro y La Moraleja. Pisos señoriales y áticos con terraza.</p>
+            <div class="zone__stat"><span>Precio medio</span><b>11.400 €/m²</b></div>
+          </div>
+        </article>
+        <article class="zone">
+          <div class="media"><canvas data-scene="sea" data-seed="11"></canvas><img data-src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=70" alt="Villa en Marbella"></div>
+          <div class="zone__body">
+            <h3>Marbella</h3>
+            <p>Sierra Blanca, Golden Mile y Nueva Andalucía. Villas contemporáneas con vistas al mar.</p>
+            <div class="zone__stat"><span>Precio medio</span><b>8.900 €/m²</b></div>
+          </div>
+        </article>
+        <article class="zone">
+          <div class="media"><canvas data-scene="country" data-seed="5"></canvas><img data-src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=70" alt="Finca en Mallorca"></div>
+          <div class="zone__body">
+            <h3>Mallorca</h3>
+            <p>Port d'Andratx, Deià y Santa Ponsa. Fincas de piedra y casas frente al Mediterráneo.</p>
+            <div class="zone__stat"><span>Precio medio</span><b>9.600 €/m²</b></div>
+          </div>
+        </article>
+        <article class="zone">
+          <div class="media"><canvas data-scene="city" data-seed="19"></canvas><img data-src="https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=900&q=70" alt="Vista de Barcelona"></div>
+          <div class="zone__body">
+            <h3>Barcelona</h3>
+            <p>Eixample, Sant Gervasi y Pedralbes. Pisos modernistas y casas en la zona alta.</p>
+            <div class="zone__stat"><span>Precio medio</span><b>7.800 €/m²</b></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band sell" id="vender" aria-labelledby="vender-title">
+    <div class="wrap sell__grid">
+      <div>
+        <span class="eyebrow">Vender con Airama</span>
+        <h2 id="vender-title">Una valoración rigurosa en 48 horas</h2>
+        <p class="sell__lead">Comparamos tu vivienda con operaciones reales cerradas en tu zona, no con precios de anuncio. Recibirás un informe firmado por un tasador colegiado y un plan de venta a medida.</p>
+        <a class="btn" href="#contacto" data-interes="Valorar">Solicitar valoración gratuita</a>
+      </div>
+      <ol class="steps">
+        <li>
+          <div>
+            <h3>Visita a la vivienda</h3>
+            <p>Un asesor de la zona revisa la propiedad, la documentación registral y el certificado energético.</p>
+            <span class="when">Día 1</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Informe de valoración</h3>
+            <p>Precio recomendado, horquilla de negociación y comparables vendidos en los últimos 18 meses.</p>
+            <span class="when">Antes de 48 horas</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Plan de comercialización</h3>
+            <p>Fotografía y vídeo profesional, plano acotado y difusión a compradores cualificados de nuestra red internacional.</p>
+            <span class="when">Semana 1</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Negociación y firma</h3>
+            <p>Gestionamos las arras, la due diligence del comprador y te acompañamos a la firma ante notario.</p>
+            <span class="when">Media de 74 días</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" aria-label="Opinión de un cliente">
+    <div class="wrap">
+      <figure class="quote">
+        <div class="quote__mark" aria-hidden="true"></div>
+        <div>
+          <blockquote>Vendieron nuestra casa de Deià sin publicarla en ningún portal. Tres visitas, un comprador y una firma limpia en nueve semanas.</blockquote>
+          <figcaption>Cliente de Airama · Venta en Mallorca</figcaption>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band contact" id="contacto" aria-labelledby="contacto-title">
+    <div class="wrap contact__grid">
+      <div>
+        <span class="eyebrow">Contacto</span>
+        <h2 id="contacto-title">Hablemos de tu próxima casa</h2>
+        <p class="contact__lead">Cuéntanos qué buscas o qué quieres vender. Un asesor de la zona te responderá en menos de 24 horas laborables.</p>
+        <div class="offices">
+          <div class="office"><b>Madrid</b><span>Calle de Serrano 41, 28001</span><span class="phone">+34 910 000 410</span></div>
+          <div class="office"><b>Marbella</b><span>Avenida Ricardo Soriano 22, 29601</span><span class="phone">+34 952 000 220</span></div>
+          <div class="office"><b>Palma</b><span>Passeig des Born 15, 07012</span><span class="phone">+34 971 000 150</span></div>
+        </div>
+      </div>
+
+      <form class="form" id="contact-form" novalidate>
+        <div class="ff">
+          <label for="c-nombre">Nombre</label>
+          <input id="c-nombre" name="nombre" autocomplete="given-name" required>
+          <span class="hint" data-for="c-nombre"></span>
+        </div>
+        <div class="ff">
+          <label for="c-apellidos">Apellidos</label>
+          <input id="c-apellidos" name="apellidos" autocomplete="family-name">
+          <span class="hint"></span>
+        </div>
+        <div class="ff">
+          <label for="c-email">Correo electrónico</label>
+          <input id="c-email" name="email" type="email" autocomplete="email" required>
+          <span class="hint" data-for="c-email"></span>
+        </div>
+        <div class="ff">
+          <label for="c-tel">Teléfono</label>
+          <input id="c-tel" name="telefono" type="tel" autocomplete="tel" placeholder="+34">
+          <span class="hint"></span>
+        </div>
+        <fieldset class="ff full">
+          <legend>Me interesa</legend>
+          <div class="radios">
+            <label><input type="radio" name="interes" value="Comprar" id="c-int-comprar" checked> Comprar</label>
+            <label><input type="radio" name="interes" value="Vender" id="c-int-vender"> Vender</label>
+            <label><input type="radio" name="interes" value="Alquilar" id="c-int-alquilar"> Alquilar</label>
+            <label><input type="radio" name="interes" value="Valorar" id="c-int-valorar"> Valorar mi vivienda</label>
+          </div>
+        </fieldset>
+        <div class="ff">
+          <label for="c-zona">Zona</label>
+          <select id="c-zona" name="zona">
+            <option>Madrid</option>
+            <option>Marbella</option>
+            <option>Mallorca</option>
+            <option>Barcelona</option>
+            <option>Otra</option>
+          </select>
+        </div>
+        <div class="ff">
+          <label for="c-ref">Referencia del inmueble (opcional)</label>
+          <input id="c-ref" name="referencia" placeholder="AIR-0000">
+        </div>
+        <div class="ff full">
+          <label for="c-msg">Mensaje</label>
+          <textarea id="c-msg" name="mensaje" rows="4" placeholder="Presupuesto, plazos, número de dormitorios…"></textarea>
+        </div>
+        <label class="consent full" for="c-rgpd">
+          <input type="checkbox" id="c-rgpd" name="rgpd" required>
+          <span>He leído y acepto la política de privacidad. Airama Propiedades tratará mis datos solo para responder a esta solicitud.</span>
+        </label>
+        <div class="form__foot full">
+          <button class="btn" type="submit">Enviar solicitud</button>
+          <p class="form-status" id="form-status" role="status" hidden></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#top"><span class="brand__name">AIRAMA</span><span class="brand__tag">Propiedades singulares</span></a>
+        <p>Agencia inmobiliaria especializada en vivienda prime. Compra, venta y alquiler de larga temporada.</p>
+      </div>
+      <div>
+        <h4>Propiedades</h4>
+        <ul>
+          <li><a href="#propiedades">En venta</a></li>
+          <li><a href="#propiedades" data-op="alquiler">En alquiler</a></li>
+          <li><a href="#zonas">Zonas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#vender">Valoración</a></li>
+          <li><a href="#vender">Vender</a></li>
+          <li><a href="#contacto">Búsqueda personalizada</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#top">Aviso legal</a></li>
+          <li><a href="#top">Privacidad</a></li>
+          <li><a href="#top">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Airama Propiedades</span>
+      <span>Precios sin impuestos ni gastos de notaría y registro</span>
+    </div>
+  </div>
+</footer>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
+  <button class="sheet__close" type="button" id="sheet-close" aria-label="Cerrar ficha">×</button>
+  <div class="sheet__grid">
+    <div class="media" id="sheet-media"></div>
+    <div class="sheet__body">
+      <div class="listing__meta"><span id="sheet-zona"></span><span class="ref" id="sheet-ref"></span></div>
+      <h3 id="sheet-title"></h3>
+      <div class="sheet__price" id="sheet-price"></div>
+      <p class="sheet__desc" id="sheet-desc"></p>
+      <dl id="sheet-specs"></dl>
+      <a class="btn" href="#contacto" id="sheet-cta">Solicitar visita</a>
+    </div>
+  </div>
+</dialog>
+
+<script src="js/main.js"></script>
+</body>
+</html>
